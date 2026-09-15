@@ -4,11 +4,11 @@ import { useState, type FormEvent } from "react";
 import { PageHero } from "@/components/site/PageHero";
 import { INSTAGRAM, INSTAGRAM_URL, WHATSAPP_DISPLAY, whatsappLink } from "@/data/rede";
 
-type ContactSearch = { interesse?: string };
+type ContactSearch = { interesse?: string | undefined };
 
 export const Route = createFileRoute("/contato")({
   validateSearch: (search: Record<string, unknown>): ContactSearch => ({
-    interesse: typeof search.interesse === "string" ? search.interesse : undefined,
+    interesse: typeof search["interesse"] === "string" ? search["interesse"] : undefined,
   }),
   head: () => ({
     meta: [

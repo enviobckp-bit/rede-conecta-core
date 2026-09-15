@@ -10,33 +10,141 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as EmpresasRouteImport } from './routes/empresas'
+import { Route as FrentesRouteImport } from './routes/frentes'
+import { Route as IgrejasRouteImport } from './routes/igrejas'
+import { Route as PalestrasRouteImport } from './routes/palestras'
+import { Route as ProjetosRouteImport } from './routes/projetos'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as SobreRouteImport } from './routes/sobre'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContatoRoute = ContatoRouteImport.update({
+  id: '/contato',
+  path: '/contato',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmpresasRoute = EmpresasRouteImport.update({
+  id: '/empresas',
+  path: '/empresas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FrentesRoute = FrentesRouteImport.update({
+  id: '/frentes',
+  path: '/frentes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IgrejasRoute = IgrejasRouteImport.update({
+  id: '/igrejas',
+  path: '/igrejas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PalestrasRoute = PalestrasRouteImport.update({
+  id: '/palestras',
+  path: '/palestras',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjetosRoute = ProjetosRouteImport.update({
+  id: '/projetos',
+  path: '/projetos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SobreRoute = SobreRouteImport.update({
+  id: '/sobre',
+  path: '/sobre',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contato': typeof ContatoRoute
+  '/empresas': typeof EmpresasRoute
+  '/frentes': typeof FrentesRoute
+  '/igrejas': typeof IgrejasRoute
+  '/palestras': typeof PalestrasRoute
+  '/projetos': typeof ProjetosRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/sobre': typeof SobreRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contato': typeof ContatoRoute
+  '/empresas': typeof EmpresasRoute
+  '/frentes': typeof FrentesRoute
+  '/igrejas': typeof IgrejasRoute
+  '/palestras': typeof PalestrasRoute
+  '/projetos': typeof ProjetosRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/sobre': typeof SobreRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contato': typeof ContatoRoute
+  '/empresas': typeof EmpresasRoute
+  '/frentes': typeof FrentesRoute
+  '/igrejas': typeof IgrejasRoute
+  '/palestras': typeof PalestrasRoute
+  '/projetos': typeof ProjetosRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/sobre': typeof SobreRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/contato'
+    | '/empresas'
+    | '/frentes'
+    | '/igrejas'
+    | '/palestras'
+    | '/projetos'
+    | '/sitemap.xml'
+    | '/sobre'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/contato'
+    | '/empresas'
+    | '/frentes'
+    | '/igrejas'
+    | '/palestras'
+    | '/projetos'
+    | '/sitemap.xml'
+    | '/sobre'
+  id:
+    | '__root__'
+    | '/'
+    | '/contato'
+    | '/empresas'
+    | '/frentes'
+    | '/igrejas'
+    | '/palestras'
+    | '/projetos'
+    | '/sitemap.xml'
+    | '/sobre'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContatoRoute: typeof ContatoRoute
+  EmpresasRoute: typeof EmpresasRoute
+  FrentesRoute: typeof FrentesRoute
+  IgrejasRoute: typeof IgrejasRoute
+  PalestrasRoute: typeof PalestrasRoute
+  ProjetosRoute: typeof ProjetosRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  SobreRoute: typeof SobreRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +156,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contato': {
+      id: '/contato'
+      path: '/contato'
+      fullPath: '/contato'
+      preLoaderRoute: typeof ContatoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/empresas': {
+      id: '/empresas'
+      path: '/empresas'
+      fullPath: '/empresas'
+      preLoaderRoute: typeof EmpresasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/frentes': {
+      id: '/frentes'
+      path: '/frentes'
+      fullPath: '/frentes'
+      preLoaderRoute: typeof FrentesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/igrejas': {
+      id: '/igrejas'
+      path: '/igrejas'
+      fullPath: '/igrejas'
+      preLoaderRoute: typeof IgrejasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/palestras': {
+      id: '/palestras'
+      path: '/palestras'
+      fullPath: '/palestras'
+      preLoaderRoute: typeof PalestrasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projetos': {
+      id: '/projetos'
+      path: '/projetos'
+      fullPath: '/projetos'
+      preLoaderRoute: typeof ProjetosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sobre': {
+      id: '/sobre'
+      path: '/sobre'
+      fullPath: '/sobre'
+      preLoaderRoute: typeof SobreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContatoRoute: ContatoRoute,
+  EmpresasRoute: EmpresasRoute,
+  FrentesRoute: FrentesRoute,
+  IgrejasRoute: IgrejasRoute,
+  PalestrasRoute: PalestrasRoute,
+  ProjetosRoute: ProjetosRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  SobreRoute: SobreRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
