@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import jesielImg from "@/assets/jesiel.jpg";
+import jesielAsset from "@/assets/jesiel.jpg.asset.json";
 import { PageHero } from "@/components/site/PageHero";
 import { Reveal } from "@/components/site/Reveal";
 import { CtaFinal } from "@/components/site/CtaFinal";
@@ -38,7 +38,7 @@ function SobrePage() {
 
       <section className="mx-auto grid max-w-7xl gap-14 px-5 py-24 lg:grid-cols-[0.8fr_1fr] lg:items-center lg:px-8">
         <Reveal>
-          <img src={jesielImg} alt="Retrato de Jesiel Ribeiro" width={1024} height={1280} className="w-full rounded-3xl object-cover shadow-lift" />
+          <img src={jesielAsset.url} alt="Retrato de Jesiel Ribeiro" width={1024} height={1280} className="w-full rounded-3xl object-cover shadow-lift" />
         </Reveal>
         <Reveal delay={100}>
           <p className="eyebrow">Quem lidera</p>

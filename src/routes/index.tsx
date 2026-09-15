@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import heroImg from "@/assets/hero-conexao.jpg";
 import igrejasImg from "@/assets/igrejas.jpg";
 import empresasImg from "@/assets/empresas.jpg";
-import jesielImg from "@/assets/jesiel.jpg";
+import jesielAsset from "@/assets/jesiel.jpg.asset.json";
 import { Reveal } from "@/components/site/Reveal";
 import { CtaFinal } from "@/components/site/CtaFinal";
 import { frentes, palestras, pilares, whatsappLink } from "@/data/rede";
@@ -263,7 +263,7 @@ function Home() {
         <div className="mx-auto grid max-w-7xl gap-14 px-5 lg:grid-cols-[0.8fr_1fr] lg:items-center lg:px-8">
           <Reveal>
             <img
-              src={jesielImg}
+              src={jesielAsset.url}
               alt="Retrato de Jesiel Ribeiro"
               loading="lazy"
               width={1024}
