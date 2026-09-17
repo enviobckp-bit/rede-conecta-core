@@ -38,7 +38,7 @@ export function Header() {
             R
           </span>
           <span className="min-w-0">
-            <span className="block font-display text-lg leading-none">REDE CONECTA</span>
+            <span className="block font-display text-lg leading-none">GRUPO REDE CONECTA</span>
             <span className="block truncate text-[0.6rem] tracking-[0.22em] text-muted-foreground uppercase">
               Reconstruir · Encorajar · Despertar · Edificar
             </span>
