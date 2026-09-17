@@ -57,7 +57,7 @@ export function Footer() {
 
       <div className="border-t border-white/10">
         <p className="mx-auto max-w-7xl px-5 py-6 text-xs opacity-60 lg:px-8">
-          © {new Date().getFullYear()} REDE CONECTA · Todos os direitos reservados.
+          © 2026  GRUPO REDE CONECTA · Todos os direitos reservados.
         </p>
       </div>
     </footer>
