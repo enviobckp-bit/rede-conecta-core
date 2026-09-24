@@ -1,6 +1,6 @@
 export const WHATSAPP_NUMBER = "5519974210220";
 export const WHATSAPP_DISPLAY = "(19) 97421-0220";
-export const INSTAGRAM = "@redee_conecta";
+export const INSTAGRAM = "@grupo_rede.conecta";
 export const INSTAGRAM_URL = "https://instagram.com/redee_conecta";
 
 export function whatsappLink(message: string) {

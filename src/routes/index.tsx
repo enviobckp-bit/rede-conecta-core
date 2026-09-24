@@ -278,7 +278,7 @@ function Home() {
               Pastor · Terapeuta Familiar · Palestrante
             </p>
             <p className="mt-7 text-lg leading-relaxed text-muted-foreground">
-              Há anos dedicado ao cuidado de pessoas, Jesiel une a sensibilidade pastoral, a
+              Há anos dedicado ao cuidado de pessoas, Jesiel Ribeiro une a sensibilidade pastoral, a
               formação em terapia familiar e a experiência em palcos para falar de forma direta e
               acolhedora sobre aquilo que realmente atravessa a vida das pessoas.
             </p>
