@@ -23,6 +23,8 @@ export const Route = createFileRoute("/")({
         content:
           "Uma rede de acolhimento, desenvolvimento humano e transformação de vidas para igrejas e empresas.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { property: "og:url", content: "/" },
     ],
     links: [{ rel: "canonical", href: "/" }],
