@@ -102,7 +102,63 @@ export function AuthGate({ children }: { children: ReactNode }) {
     );
   }
   if (!session) return <Navigate to="/login" replace />;
-  return <OrganizationAccess key={session.user.id} session={session}>{children}</OrganizationAccess>;
+  return <ProfileAccess key={session.user.id} session={session}>{children}</ProfileAccess>;
+}
+
+function ProfileAccess({ session, children }: { session: Session; children: ReactNode }) {
+  const [signingOut, setSigningOut] = useState(false);
+  const [signOutError, setSignOutError] = useState<string | null>(null);
+  const profile = useQuery({
+    queryKey: ["authenticated-profile", session.user.id],
+    queryFn: async ({ signal }) => {
+      const client: SupabaseClient = supabase;
+      const result = await client
+        .from("profiles")
+        .upsert({ user_id: session.user.id }, { onConflict: "user_id" })
+        .select("user_id")
+        .abortSignal(signal)
+        .single();
+      if (result.error) throw result.error;
+      if (!result.data || result.data.user_id !== session.user.id) {
+        throw new Error("Perfil não disponível para a sessão atual.");
+      }
+      return { user_id: session.user.id };
+    },
+    retry: 1,
+    staleTime: Infinity,
+  });
+
+  async function signOut() {
+    setSigningOut(true);
+    setSignOutError(null);
+    try {
+      const { error } = await supabase.auth.signOut();
+      if (error) throw error;
+    } catch {
+      setSignOutError("Não foi possível sair da conta. Tente novamente.");
+    } finally {
+      setSigningOut(false);
+    }
+  }
+
+  if (profile.isPending) {
+    return <AccessMessage><p className="text-muted-foreground">Preparando seu perfil…</p></AccessMessage>;
+  }
+  if (profile.isError) {
+    return (
+      <AccessMessage>
+        <h1 className="text-2xl font-semibold">Não foi possível preparar seu perfil</h1>
+        <p role="alert" className="text-muted-foreground">Sua sessão está autenticada, mas o perfil ainda não pôde ser salvo. Tente novamente sem refazer o cadastro.</p>
+        <div className="flex flex-wrap justify-center gap-3">
+          <Button disabled={profile.isFetching || signingOut} onClick={() => void profile.refetch()}>Tentar novamente</Button>
+          <Button variant="outline" disabled={signingOut} onClick={() => void signOut()}>{signingOut ? "Saindo…" : "Sair da conta"}</Button>
+        </div>
+        {signOutError && <p role="alert" className="text-sm text-destructive">{signOutError}</p>}
+      </AccessMessage>
+    );
+  }
+
+  return <OrganizationAccess session={session}>{children}</OrganizationAccess>;
 }
 
 function OrganizationAccess({ session, children }: { session: Session; children: ReactNode }) {
