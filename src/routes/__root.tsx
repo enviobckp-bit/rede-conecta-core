@@ -14,6 +14,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
+import { AuthProvider, AuthGate } from "@/components/auth/AuthAccess";
 
 function NotFoundComponent() {
   return (
@@ -138,13 +139,17 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Header />
-      <main>
-        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-        <Outlet />
-      </main>
-      <Footer />
-      <WhatsAppFloat />
+      <AuthProvider>
+        <AuthGate>
+          <Header />
+          <main>
+            {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+            <Outlet />
+          </main>
+          <Footer />
+          <WhatsAppFloat />
+        </AuthGate>
+      </AuthProvider>
     </QueryClientProvider>
   );
 }
